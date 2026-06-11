@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Faculdade — Sistema Acadêmico</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="shell">
+
+  <!-- ── SIDEBAR ── -->
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <h1>Faculdade</h1>
+      <span>Sistema Acadêmico</span>
+    </div>
+    <nav class="nav">
+      <div class="nav-section">
+        <div class="nav-label">Visão Geral</div>
+        <button class="nav-item active" onclick="navigate('dashboard')">
+          <svg class="nav-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+          Dashboard
+        </button>
+      </div>
+      <div class="nav-section">
+        <div class="nav-label">Pessoas</div>
+        <button class="nav-item" onclick="navigate('alunos')">
+          <svg class="nav-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
+          Alunos
+        </button>
+        <button class="nav-item" onclick="navigate('professores')">
+          <svg class="nav-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+          Professores
+        </button>
+        <button class="nav-item" onclick="navigate('funcionarios')">
+          <svg class="nav-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          Funcionários
+        </button>
+      </div>
+      <div class="nav-section">
+        <div class="nav-label">Acadêmico</div>
+        <button class="nav-item" onclick="navigate('disciplinas')">
+          <svg class="nav-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+          Disciplinas
+        </button>
+        <button class="nav-item" onclick="navigate('matriculas')">
+          <svg class="nav-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+          Matrículas
+        </button>
+        <button class="nav-item" onclick="navigate('provas')">
+          <svg class="nav-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          Provas &amp; Notas
+        </button>
+        <button class="nav-item" onclick="navigate('agenda')">
+          <svg class="nav-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          Agenda
+        </button>
+      </div>
+    </nav>
+    <div class="sidebar-footer">
+      <p>faculdade-sistema v1.0</p>
+    </div>
+  </aside>
+
+  <!-- ── MAIN ── -->
+  <div class="main">
+    <div class="topbar">
+      <button class="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')">
+        <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+      <h2 id="page-title">Dashboard</h2>
+      <span class="badge" id="page-badge">VISÃO GERAL</span>
+    </div>
+
+    <div class="content">
+
+      <!-- ── DASHBOARD ── -->
+      <div class="page active" id="page-dashboard">
+        <div class="stats-grid" id="stats-grid"></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
+          <div>
+            <div class="section-header"><div><h3>Últimas Matrículas</h3><p>Registros recentes</p></div></div>
+            <div class="table-wrap" id="dash-matriculas"></div>
+          </div>
+          <div>
+            <div class="section-header"><div><h3>Próximas Provas</h3><p>Agenda acadêmica</p></div></div>
+            <div class="table-wrap" id="dash-provas"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── ALUNOS ── -->
+      <div class="page" id="page-alunos">
+        <div class="section-header">
+          <div><h3>Alunos Cadastrados</h3><p>Gerencie o corpo discente</p></div>
+          <button class="btn btn-primary" onclick="openModal('modal-aluno')">
+            <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+            Novo Aluno
+          </button>
+        </div>
+        <div class="search-bar">
+          <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          <input type="text" placeholder="Buscar aluno..." oninput="renderAlunos(this.value)" id="search-aluno">
+        </div>
+        <div class="table-wrap"><table>
+          <thead><tr><th>#</th><th>Nome</th><th>CPF</th><th>Curso</th><th>Período</th><th>Status</th><th></th></tr></thead>
+          <tbody id="tbody-alunos"></tbody>
+        </table></div>
+      </div>
+
+      <!-- ── PROFESSORES ── -->
+      <div class="page" id="page-professores">
+        <div class="section-header">
+          <div><h3>Professores</h3><p>Corpo docente da instituição</p></div>
+          <button class="btn btn-primary" onclick="openModal('modal-professor')">
+            <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+            Novo Professor
+          </button>
+        </div>
+        <div class="search-bar">
+          <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          <input type="text" placeholder="Buscar professor..." oninput="renderProfessores(this.value)">
+        </div>
+        <div class="table-wrap"><table>
+          <thead><tr><th>#</th><th>Nome</th><th>CPF</th><th>Especialidade</th><th>Email</th><th>Titulação</th><th></th></tr></thead>
+          <tbody id="tbody-professores"></tbody>
+        </table></div>
+      </div>
+
+      <!-- ── FUNCIONÁRIOS ── -->
+      <div class="page" id="page-funcionarios">
+        <div class="section-header">
+          <div><h3>Funcionários</h3><p>Equipe administrativa</p></div>
+          <button class="btn btn-primary" onclick="openModal('modal-funcionario')">
+            <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+            Novo Funcionário
+          </button>
+        </div>
+        <div class="table-wrap"><table>
+          <thead><tr><th>#</th><th>Nome</th><th>CPF</th><th>Cargo</th><th>Setor</th><th>Email</th><th></th></tr></thead>
+          <tbody id="tbody-funcionarios"></tbody>
+        </table></div>
+      </div>
+
+      <!-- ── DISCIPLINAS ── -->
+      <div class="page" id="page-disciplinas">
+        <div class="section-header">
+          <div><h3>Disciplinas</h3><p>Grade curricular</p></div>
+          <button class="btn btn-primary" onclick="openModal('modal-disciplina')">
+            <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+            Nova Disciplina
+          </button>
+        </div>
+        <div class="cards-grid" id="cards-disciplinas"></div>
+      </div>
+
+      <!-- ── MATRÍCULAS ── -->
+      <div class="page" id="page-matriculas">
+        <div class="section-header">
+          <div><h3>Matrículas</h3><p>Vínculos aluno ↔ disciplina</p></div>
+          <button class="btn btn-primary" onclick="openModal('modal-matricula')">
+            <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+            Nova Matrícula
+          </button>
+        </div>
+        <div class="table-wrap"><table>
+          <thead><tr><th>#</th><th>Aluno</th><th>Disciplina</th><th>Período</th><th>Status</th><th></th></tr></thead>
+          <tbody id="tbody-matriculas"></tbody>
+        </table></div>
+      </div>
+
+      <!-- ── PROVAS ── -->
+      <div class="page" id="page-provas">
+        <div class="section-header">
+          <div><h3>Provas &amp; Notas</h3><p>Avaliações e desempenho</p></div>
+          <button class="btn btn-primary" onclick="openModal('modal-prova')">
+            <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+            Nova Prova
+          </button>
+        </div>
+        <div class="table-wrap"><table>
+          <thead><tr><th>#</th><th>Aluno</th><th>Disciplina</th><th>Tipo</th><th>Nota</th><th>Data</th><th>Situação</th><th></th></tr></thead>
+          <tbody id="tbody-provas"></tbody>
+        </table></div>
+      </div>
+
+      <!-- ── AGENDA ── -->
+      <div class="page" id="page-agenda">
+        <div class="section-header">
+          <div><h3>Agenda</h3><p>Eventos e compromissos</p></div>
+          <button class="btn btn-primary" onclick="openModal('modal-agenda')">
+            <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+            Novo Evento
+          </button>
+        </div>
+        <div class="table-wrap"><table>
+          <thead><tr><th>#</th><th>Título</th><th>Tipo</th><th>Data</th><th>Hora</th><th>Local</th><th></th></tr></thead>
+          <tbody id="tbody-agenda"></tbody>
+        </table></div>
+      </div>
+
+    </div><!-- /content -->
+  </div><!-- /main -->
+</div><!-- /shell -->
+
+<!-- ── MODAIS ── -->
+
+<!-- ALUNO -->
+<div class="overlay" id="modal-aluno">
+  <div class="modal">
+    <div class="modal-header">
+      <h4 id="modal-aluno-title">Novo Aluno</h4>
+      <button class="close-btn" onclick="closeModal('modal-aluno')"><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg></button>
+    </div>
+    <div class="modal-body">
+      <input type="hidden" id="aluno-id">
+      <div class="form-grid">
+        <div class="form-group"><label>Nome Completo</label><input id="aluno-nome" placeholder="João da Silva"></div>
+        <div class="form-group"><label>CPF</label><input id="aluno-cpf" placeholder="000.000.000-00" maxlength="14"></div>
+        <div class="form-group"><label>Email</label><input id="aluno-email" type="email" placeholder="joao@email.com"></div>
+        <div class="form-group"><label>Telefone</label><input id="aluno-tel" placeholder="(71) 99999-0000"></div>
+        <div class="form-group"><label>Curso</label>
+          <select id="aluno-curso">
+            <option>Administração</option><option>Ciência da Computação</option><option>Direito</option>
+            <option>Engenharia Civil</option><option>Engenharia de Software</option><option>Medicina</option>
+            <option>Pedagogia</option><option>Psicologia</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Período</label>
+          <select id="aluno-periodo">
+            <option>1º Período</option><option>2º Período</option><option>3º Período</option><option>4º Período</option>
+            <option>5º Período</option><option>6º Período</option><option>7º Período</option><option>8º Período</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Status</label>
+          <select id="aluno-status"><option>Ativo</option><option>Trancado</option><option>Formado</option><option>Cancelado</option></select>
+        </div>
+        <div class="form-group"><label>Data de Nascimento</label><input id="aluno-nasc" type="date"></div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-ghost" onclick="closeModal('modal-aluno')">Cancelar</button>
+      <button class="btn btn-primary" onclick="salvarAluno()">Salvar</button>
+    </div>
+  </div>
+</div>
+
+<!-- PROFESSOR -->
+<div class="overlay" id="modal-professor">
+  <div class="modal">
+    <div class="modal-header">
+      <h4 id="modal-prof-title">Novo Professor</h4>
+      <button class="close-btn" onclick="closeModal('modal-professor')"><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg></button>
+    </div>
+    <div class="modal-body">
+      <input type="hidden" id="prof-id">
+      <div class="form-grid">
+        <div class="form-group"><label>Nome Completo</label><input id="prof-nome" placeholder="Prof. Maria Souza"></div>
+        <div class="form-group"><label>CPF</label><input id="prof-cpf" placeholder="000.000.000-00"></div>
+        <div class="form-group"><label>Email</label><input id="prof-email" type="email"></div>
+        <div class="form-group"><label>Telefone</label><input id="prof-tel"></div>
+        <div class="form-group"><label>Especialidade</label><input id="prof-esp" placeholder="Cálculo, Algoritmos..."></div>
+        <div class="form-group"><label>Titulação</label>
+          <select id="prof-tit"><option>Graduação</option><option>Especialização</option><option>Mestrado</option><option>Doutorado</option><option>Pós-Doutorado</option></select>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-ghost" onclick="closeModal('modal-professor')">Cancelar</button>
+      <button class="btn btn-primary" onclick="salvarProfessor()">Salvar</button>
+    </div>
+  </div>
+</div>
+
+<!-- FUNCIONÁRIO -->
+<div class="overlay" id="modal-funcionario">
+  <div class="modal">
+    <div class="modal-header">
+      <h4>Novo Funcionário</h4>
+      <button class="close-btn" onclick="closeModal('modal-funcionario')"><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg></button>
+    </div>
+    <div class="modal-body">
+      <input type="hidden" id="func-id">
+      <div class="form-grid">
+        <div class="form-group"><label>Nome Completo</label><input id="func-nome"></div>
+        <div class="form-group"><label>CPF</label><input id="func-cpf" placeholder="000.000.000-00"></div>
+        <div class="form-group"><label>Email</label><input id="func-email" type="email"></div>
+        <div class="form-group"><label>Cargo</label><input id="func-cargo" placeholder="Secretário, Coordenador..."></div>
+        <div class="form-group"><label>Setor</label>
+          <select id="func-setor"><option>Secretaria</option><option>Coordenação</option><option>TI</option><option>Financeiro</option><option>RH</option><option>Biblioteca</option></select>
+        </div>
+        <div class="form-group"><label>Salário (R$)</label><input id="func-salario" type="number" placeholder="0.00"></div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-ghost" onclick="closeModal('modal-funcionario')">Cancelar</button>
+      <button class="btn btn-primary" onclick="salvarFuncionario()">Salvar</button>
+    </div>
+  </div>
+</div>
+
+<!-- DISCIPLINA -->
+<div class="overlay" id="modal-disciplina">
+  <div class="modal">
+    <div class="modal-header">
+      <h4 id="modal-disc-title">Nova Disciplina</h4>
+      <button class="close-btn" onclick="closeModal('modal-disciplina')"><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg></button>
+    </div>
+    <div class="modal-body">
+      <input type="hidden" id="disc-id">
+      <div class="form-group"><label>Nome da Disciplina</label><input id="disc-nome" placeholder="Cálculo I, Algoritmos..."></div>
+      <div class="form-grid">
+        <div class="form-group"><label>Código</label><input id="disc-codigo" placeholder="MAT101"></div>
+        <div class="form-group"><label>Carga Horária (h)</label><input id="disc-carga" type="number" placeholder="60"></div>
+        <div class="form-group"><label>Professor Responsável</label><select id="disc-prof"><option value="">— Selecionar —</option></select></div>
+        <div class="form-group"><label>Período</label>
+          <select id="disc-periodo"><option>1º Período</option><option>2º Período</option><option>3º Período</option><option>4º Período</option><option>5º Período</option></select>
+        </div>
+        <div class="form-group"><label>Área</label>
+          <select id="disc-area"><option>Exatas</option><option>Humanas</option><option>Biológicas</option><option>Tecnologia</option><option>Linguagens</option></select>
+        </div>
+        <div class="form-group"><label>Créditos</label><input id="disc-creditos" type="number" placeholder="4" min="1" max="10"></div>
+      </div>
+      <div class="form-group"><label>Ementa</label><textarea id="disc-ementa" rows="3" style="resize:vertical" placeholder="Descrição da disciplina..."></textarea></div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-ghost" onclick="closeModal('modal-disciplina')">Cancelar</button>
+      <button class="btn btn-primary" onclick="salvarDisciplina()">Salvar</button>
+    </div>
+  </div>
+</div>
+
+<!-- MATRÍCULA -->
+<div class="overlay" id="modal-matricula">
+  <div class="modal">
+    <div class="modal-header">
+      <h4>Nova Matrícula</h4>
+      <button class="close-btn" onclick="closeModal('modal-matricula')"><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg></button>
+    </div>
+    <div class="modal-body">
+      <div class="form-group"><label>Aluno</label><select id="mat-aluno"><option value="">— Selecionar —</option></select></div>
+      <div class="form-group"><label>Disciplina</label><select id="mat-disc"><option value="">— Selecionar —</option></select></div>
+      <div class="form-grid">
+        <div class="form-group"><label>Período Letivo</label><input id="mat-periodo" placeholder="2024.1"></div>
+        <div class="form-group"><label>Status</label>
+          <select id="mat-status"><option>Ativa</option><option>Trancada</option><option>Concluída</option><option>Reprovada</option></select>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-ghost" onclick="closeModal('modal-matricula')">Cancelar</button>
+      <button class="btn btn-primary" onclick="salvarMatricula()">Salvar</button>
+    </div>
+  </div>
+</div>
+
+<!-- PROVA -->
+<div class="overlay" id="modal-prova">
+  <div class="modal">
+    <div class="modal-header">
+      <h4>Nova Prova / Nota</h4>
+      <button class="close-btn" onclick="closeModal('modal-prova')"><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg></button>
+    </div>
+    <div class="modal-body">
+      <div class="form-group"><label>Aluno</label><select id="prov-aluno"><option value="">— Selecionar —</option></select></div>
+      <div class="form-group"><label>Disciplina</label><select id="prov-disc"><option value="">— Selecionar —</option></select></div>
+      <div class="form-grid">
+        <div class="form-group"><label>Tipo</label>
+          <select id="prov-tipo"><option>Prova P1</option><option>Prova P2</option><option>Prova P3</option><option>Trabalho</option><option>Seminário</option><option>Recuperação</option></select>
+        </div>
+        <div class="form-group"><label>Nota (0–10)</label><input id="prov-nota" type="number" min="0" max="10" step="0.1" placeholder="7.5"></div>
+        <div class="form-group"><label>Data</label><input id="prov-data" type="date"></div>
+        <div class="form-group"><label>Peso</label><input id="prov-peso" type="number" min="1" max="5" placeholder="1"></div>
+      </div>
+      <div class="form-group"><label>Observações</label><textarea id="prov-obs" rows="2" style="resize:vertical"></textarea></div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-ghost" onclick="closeModal('modal-prova')">Cancelar</button>
+      <button class="btn btn-primary" onclick="salvarProva()">Salvar</button>
+    </div>
+  </div>
+</div>
+
+<!-- AGENDA -->
+<div class="overlay" id="modal-agenda">
+  <div class="modal">
+    <div class="modal-header">
+      <h4>Novo Evento</h4>
+      <button class="close-btn" onclick="closeModal('modal-agenda')"><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg></button>
+    </div>
+    <div class="modal-body">
+      <div class="form-group"><label>Título</label><input id="ag-titulo" placeholder="Reunião, Palestra, Aula..."></div>
+      <div class="form-grid">
+        <div class="form-group"><label>Tipo</label>
+          <select id="ag-tipo"><option>Aula</option><option>Prova</option><option>Reunião</option><option>Palestra</option><option>Evento</option><option>Feriado</option></select>
+        </div>
+        <div class="form-group"><label>Data</label><input id="ag-data" type="date"></div>
+        <div class="form-group"><label>Hora</label><input id="ag-hora" type="time"></div>
+        <div class="form-group"><label>Local</label><input id="ag-local" placeholder="Sala 101, Auditório..."></div>
+      </div>
+      <div class="form-group"><label>Descrição</label><textarea id="ag-desc" rows="2" style="resize:vertical"></textarea></div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-ghost" onclick="closeModal('modal-agenda')">Cancelar</button>
+      <button class="btn btn-primary" onclick="salvarEvento()">Salvar</button>
+    </div>
+  </div>
+</div>
+
+<!-- CONFIRMAR EXCLUSÃO -->
+<div class="overlay" id="modal-confirm">
+  <div class="modal" style="max-width:360px">
+    <div class="modal-header"><h4>Confirmar Exclusão</h4></div>
+    <div class="modal-body"><p style="color:var(--muted);font-size:.9rem">Esta ação não poderá ser desfeita. Deseja continuar?</p></div>
+    <div class="modal-footer">
+      <button class="btn btn-ghost" onclick="closeModal('modal-confirm')">Cancelar</button>
+      <button class="btn btn-danger" id="confirm-btn">Excluir</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast-container" id="toast-container"></div>
+
+<script src="js/app.js"></script>
+</body>
+</html>
