@@ -62,14 +62,6 @@
         <input type="email" id="cadEmail" placeholder="seu@email.com" required />
       </div>
       <div class="auth-field">
-        <label>Perfil</label>
-        <select id="cadPerfil">
-          <option value="Administrador">Administrador</option>
-          <option value="Professor">Professor</option>
-          <option value="Secretaria">Secretaria</option>
-        </select>
-      </div>
-      <div class="auth-field">
         <label>Senha</label>
         <div class="auth-input-wrap">
           <input type="password" id="cadSenha" placeholder="Min. 6 caracteres" required minlength="6" />
@@ -517,7 +509,6 @@
 
 <div class="toast-container" id="toast-container"></div>
 
-</div><!-- /telaApp -->
 
 <!-- FOOTER PRINCIPAL -->
 <footer class="main-footer" id="mainFooter" style="display:none;">
@@ -525,102 +516,6 @@
 </footer>
 
 <script src="js/app.js"></script>
-<script>
-// ===== AUTH =====
-const AUTH_USERS_KEY = 'sistemaFaculdade_users_v1';
-const AUTH_SESSION_KEY = 'sistemaFaculdade_session_v1';
 
-function getUsers() {
-  try { return JSON.parse(localStorage.getItem(AUTH_USERS_KEY)) || []; } catch(e) { return []; }
-}
-function saveUsers(u) { localStorage.setItem(AUTH_USERS_KEY, JSON.stringify(u)); }
-function getSession() {
-  try { return JSON.parse(localStorage.getItem(AUTH_SESSION_KEY)); } catch(e) { return null; }
-}
-function saveSession(u) { localStorage.setItem(AUTH_SESSION_KEY, JSON.stringify(u)); }
-function clearSession() { localStorage.removeItem(AUTH_SESSION_KEY); }
-
-function alternarAuthTab(tab) {
-  document.getElementById('formLogin').classList.toggle('auth-hidden', tab !== 'login');
-  document.getElementById('formCadastro').classList.toggle('auth-hidden', tab !== 'cadastro');
-  document.getElementById('tabLogin').classList.toggle('active', tab === 'login');
-  document.getElementById('tabCadastro').classList.toggle('active', tab === 'cadastro');
-  document.getElementById('erroLogin').textContent = '';
-  document.getElementById('erroCadastro').textContent = '';
-}
-
-function toggleAuthSenha(id, btn) {
-  const inp = document.getElementById(id);
-  const show = inp.type === 'password';
-  inp.type = show ? 'text' : 'password';
-  btn.querySelector('svg').style.opacity = show ? '1' : '0.45';
-}
-
-function fazerLogin(e) {
-  e.preventDefault();
-  const email = document.getElementById('loginEmail').value.trim().toLowerCase();
-  const senha = document.getElementById('loginSenha').value;
-  const users = getUsers();
-  const user = users.find(u => u.email === email && u.senha === senha);
-  if (!user) {
-    document.getElementById('erroLogin').textContent = 'E-mail ou senha incorretos.';
-    return;
-  }
-  saveSession(user);
-  mostrarApp(user);
-}
-
-function fazerCadastro(e) {
-  e.preventDefault();
-  const nome = document.getElementById('cadNome').value.trim();
-  const email = document.getElementById('cadEmail').value.trim().toLowerCase();
-  const perfil = document.getElementById('cadPerfil').value;
-  const senha = document.getElementById('cadSenha').value;
-  const confirm = document.getElementById('cadSenhaConfirm').value;
-  const erroEl = document.getElementById('erroCadastro');
-  if (senha !== confirm) { erroEl.textContent = 'As senhas nao coincidem.'; return; }
-  const users = getUsers();
-  if (users.find(u => u.email === email)) { erroEl.textContent = 'E-mail ja cadastrado.'; return; }
-  const user = { nome, email, senha, perfil };
-  users.push(user);
-  saveUsers(users);
-  saveSession(user);
-  mostrarApp(user);
-}
-
-function mostrarApp(user) {
-  document.getElementById('telaAuth').style.display = 'none';
-  document.getElementById('telaApp').style.display = 'flex';
-  document.getElementById('mainFooter').style.display = 'block';
-
-  const sf = document.querySelector('.sidebar-footer');
-  if (sf) {
-    sf.innerHTML = `
-      <div style="margin-bottom:10px;">
-        <p style="font-size:.78rem;font-weight:600;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${user.nome}</p>
-        <p style="font-size:.7rem;color:var(--muted);margin-top:2px;">${user.perfil || 'Usuario'}</p>
-      </div>
-      <button onclick="fazerLogout()" style="width:100%;padding:7px 12px;background:transparent;border:1px solid var(--border2);border-radius:var(--radius-sm);color:var(--muted);font-family:var(--font-sans);font-size:.78rem;cursor:pointer;transition:var(--transition);" onmouseover="this.style.borderColor='var(--red)';this.style.color='var(--red)'" onmouseout="this.style.borderColor='var(--border2)';this.style.color='var(--muted)'">
-        Sair do sistema
-      </button>
-    `;
-  }
-}
-
-function fazerLogout() {
-  clearSession();
-  document.getElementById('telaApp').style.display = 'none';
-  document.getElementById('mainFooter').style.display = 'none';
-  document.getElementById('telaAuth').style.display = 'flex';
-  document.getElementById('loginEmail').value = '';
-  document.getElementById('loginSenha').value = '';
-  alternarAuthTab('login');
-}
-
-(function() {
-  const session = getSession();
-  if (session) { mostrarApp(session); }
-})();
-</script>
 </body>
 </html>
